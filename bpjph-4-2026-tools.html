@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peraturan BPJPH No. 4 Tahun 2026 — Alat Bantu Regulasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF8F3;
+    --paper:#FFFFFF;
+    --ink:#1B2320;
+    --ink-2:#52584F;
+    --ink-3:#8B8C82;
+    --line:#DEDACD;
+    --line-strong:#C7C2B0;
+    --teal-50:#E1F5EE; --teal-200:#5DCAA5; --teal-600:#0F6E56; --teal-800:#085041; --teal-900:#04342C;
+    --amber-50:#FAEEDA; --amber-400:#EF9F27; --amber-600:#854F0B; --amber-800:#412402;
+    --coral-50:#FAECE7; --coral-400:#F0997B; --coral-600:#993C1D; --coral-800:#4A1B0C;
+    --red-50:#FCEBEB; --red-400:#F09595; --red-600:#A32D2D; --red-800:#501313;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif; font-size:15px; line-height:1.6;
+    padding:2.5rem 1.5rem 6rem;
+  }
+  .wrap{max-width:920px; margin:0 auto;}
+
+  /* Header */
+  .masthead{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:1.5rem;
+    padding-bottom:1.75rem; border-bottom:1px solid var(--line-strong); margin-bottom:1.75rem;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--teal-600); margin:0 0 .5rem;
+  }
+  h1{
+    font-family:'Source Serif 4',serif; font-weight:600; font-size:28px; line-height:1.25;
+    margin:0 0 .4rem; max-width:560px;
+  }
+  .subtitle{color:var(--ink-2); font-size:14px; margin:0;}
+  .stamp{
+    flex-shrink:0; width:92px; height:92px; border-radius:50%;
+    border:1.5px solid var(--teal-600); outline:1px solid var(--teal-600); outline-offset:3px;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    transform:rotate(-8deg); color:var(--teal-800);
+  }
+  .stamp span{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500; letter-spacing:.06em;
+    line-height:1.5; text-transform:uppercase;
+  }
+
+  /* Tabs styled as dossier folder tabs */
+  .tabbar{display:flex; gap:4px; margin-bottom:0; overflow-x:auto; padding-bottom:0;}
+  .tab{
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:500; color:var(--ink-2);
+    background:var(--line); border:none; border-radius:8px 8px 0 0;
+    padding:10px 16px 9px; cursor:pointer; white-space:nowrap; display:flex; align-items:center; gap:7px;
+    position:relative; top:1px; transition:background .12s, color .12s;
+  }
+  .tab .num{font-family:'IBM Plex Mono',monospace; font-size:11px; opacity:.65;}
+  .tab:hover{background:var(--line-strong);}
+  .tab.active{background:var(--paper); color:var(--teal-800); box-shadow:0 -1px 0 var(--paper);}
+  .tab.active .num{color:var(--teal-600); opacity:1;}
+
+  .panel-shell{
+    background:var(--paper); border:1px solid var(--line-strong); border-radius:0 10px 10px 10px;
+    padding:1.75rem 1.75rem 2rem;
+  }
+  .section{display:none;}
+  .section.active{display:block;}
+  .section-head{margin-bottom:1.25rem;}
+  .section-head h2{font-family:'Source Serif 4',serif; font-weight:600; font-size:19px; margin:0 0 .3rem;}
+  .section-head p{color:var(--ink-2); font-size:13.5px; margin:0;}
+
+  /* Info umum */
+  .infogrid{display:grid; grid-template-columns:180px 1fr; gap:0;}
+  .infogrid .k{
+    font-size:12.5px; color:var(--ink-3); padding:12px 12px 12px 0; border-top:1px solid var(--line);
+    text-transform:uppercase; letter-spacing:.03em; font-weight:500;
+  }
+  .infogrid .v{padding:12px 0; border-top:1px solid var(--line); font-size:14px;}
+  .infogrid > div:nth-last-child(-n+2){}
+  .badge{
+    display:inline-flex; align-items:center; gap:6px; background:var(--teal-50); color:var(--teal-800);
+    font-size:12px; font-weight:500; padding:3px 10px; border-radius:999px;
+  }
+  .badge::before{content:''; width:6px; height:6px; border-radius:50%; background:var(--teal-600);}
+
+  /* Search */
+  .searchbox{
+    display:flex; align-items:center; gap:8px; border:1px solid var(--line-strong); border-radius:8px;
+    padding:8px 12px; margin-bottom:1.25rem; background:var(--bg);
+  }
+  .searchbox input{
+    border:none; background:none; outline:none; font-size:14px; width:100%; color:var(--ink);
+    font-family:'Inter',sans-serif;
+  }
+  .searchbox svg{flex-shrink:0; opacity:.5;}
+
+  /* Istilah baru */
+  .term-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1.75rem;}
+  .term-card{border:1px solid var(--line); border-radius:8px; padding:12px 14px; background:var(--bg);}
+  .term-card .term{font-weight:600; font-size:13.5px; color:var(--teal-800); margin:0 0 4px;}
+  .term-card .def{font-size:13px; color:var(--ink-2); margin:0; line-height:1.55;}
+
+  .divider-label{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-3); margin:1.75rem 0 .9rem; padding-top:1.25rem; border-top:1px solid var(--line);
+  }
+
+  /* Pasal accordion */
+  .pasal-item{border:1px solid var(--line); border-radius:8px; margin-bottom:8px; overflow:hidden;}
+  .pasal-head{
+    display:flex; justify-content:space-between; align-items:center; gap:12px; cursor:pointer;
+    padding:12px 14px; background:var(--paper);
+  }
+  .pasal-head:hover{background:var(--bg);}
+  .pasal-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--teal-600); flex-shrink:0; min-width:150px;
+  }
+  .pasal-summary{font-size:13.5px; color:var(--ink); flex:1;}
+  .chev{transition:transform .15s; flex-shrink:0; color:var(--ink-3);}
+  .pasal-item.open .chev{transform:rotate(180deg);}
+  .pasal-body{display:none; padding:0 14px 14px 14px; font-size:13px; color:var(--ink-2); border-top:1px solid var(--line);}
+  .pasal-item.open .pasal-body{display:block; padding-top:12px;}
+  .pasal-body .label{font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-3); margin:10px 0 3px;}
+  .pasal-body .label:first-child{margin-top:0;}
+
+  /* Kewajiban filters */
+  .filterbar{display:flex; gap:6px; margin-bottom:1.25rem; flex-wrap:wrap;}
+  .filter-btn{
+    font-family:'Inter',sans-serif; font-size:12.5px; font-weight:500; padding:7px 13px; border-radius:999px;
+    border:1px solid var(--line-strong); background:var(--paper); color:var(--ink-2); cursor:pointer;
+  }
+  .filter-btn.active{background:var(--teal-800); color:#fff; border-color:var(--teal-800);}
+
+  .oblig-card{border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px;}
+  .oblig-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:8px;}
+  .oblig-text{font-size:13.5px; font-weight:500; margin:0; flex:1;}
+  .pihak-pill{
+    font-size:11px; font-weight:500; padding:3px 9px; border-radius:999px; white-space:nowrap; flex-shrink:0;
+  }
+  .pihak-Lembaga{background:var(--teal-50); color:var(--teal-800);}
+  .pihak-Importir{background:var(--amber-50); color:var(--amber-800);}
+  .pihak-BPJPH{background:#EEEDFE; color:#26215C;}
+  .oblig-meta{display:flex; gap:18px; flex-wrap:wrap; font-size:12.5px; color:var(--ink-2);}
+  .oblig-meta div span{display:block; font-size:10.5px; text-transform:uppercase; color:var(--ink-3); margin-bottom:2px; letter-spacing:.03em;}
+
+  /* Sanksi ladder */
+  .sanksi-track{display:flex; gap:6px; margin-bottom:1.5rem;}
+  .sanksi-step{flex:1; text-align:center; padding:8px 4px; border-radius:6px; font-size:11.5px; font-weight:500;}
+  .step-1{background:var(--amber-50); color:var(--amber-800);}
+  .step-2{background:var(--coral-50); color:var(--coral-800);}
+  .step-3{background:var(--red-50); color:var(--red-800);}
+  .sanksi-card{border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; border-left:3px solid var(--line-strong);}
+  .sanksi-card.lvl-1{border-left-color:var(--amber-400);}
+  .sanksi-card.lvl-2{border-left-color:var(--coral-400);}
+  .sanksi-card.lvl-3{border-left-color:var(--red-400);}
+  .sanksi-head{display:flex; justify-content:space-between; gap:10px; align-items:flex-start; margin-bottom:6px;}
+  .sanksi-name{font-weight:600; font-size:13.5px; margin:0;}
+  .sanksi-pasal{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-3); flex-shrink:0;}
+  .sanksi-viol{font-size:13px; color:var(--ink-2); margin:0;}
+
+  /* Empty state */
+  .empty{
+    text-align:center; padding:2.5rem 1.5rem; border:1px dashed var(--line-strong); border-radius:10px;
+    color:var(--ink-2);
+  }
+  .empty h3{font-family:'Source Serif 4',serif; font-size:16px; font-weight:600; color:var(--ink); margin:0 0 6px;}
+  .empty p{font-size:13.5px; margin:0; max-width:420px; margin:0 auto;}
+  .empty .note{
+    margin-top:14px; display:inline-block; font-size:12px; color:var(--teal-800); background:var(--teal-50);
+    padding:6px 12px; border-radius:999px;
+  }
+
+  .nores{display:none; text-align:center; padding:2rem; color:var(--ink-3); font-size:13.5px;}
+
+  @media (max-width:600px){
+    .masthead{flex-direction:column;}
+    .stamp{align-self:flex-end;}
+    .infogrid{grid-template-columns:1fr;}
+    .infogrid .k{padding-bottom:2px; border-top:1px solid var(--line);}
+    .infogrid .v{padding-top:0; border-top:none; padding-bottom:12px;}
+    .term-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div>
+      <p class="eyebrow">Review regulasi &middot; BPJPH</p>
+      <h1>Pemastian Kesesuaian Produk Halal Luar Negeri</h1>
+      <p class="subtitle">Peraturan BPJPH No. 4 Tahun 2026 — alat bantu navigasi cepat isi regulasi</p>
+    </div>
+    <div class="stamp"><span>Berlaku<br>9 Sep<br>2026</span></div>
+  </div>
+
+  <div class="tabbar" id="tabbar"></div>
+  <div class="panel-shell" id="panelShell"></div>
+
+</div>
+
+<script>
+const DATA = {
+  info: {
+    instansi: "BPJPH (Badan Penyelenggara Jaminan Produk Halal)",
+    jenis: "Peraturan Badan/Lembaga",
+    nomor: "Peraturan BPJPH No. 4 Tahun 2026",
+    judul: "Pemastian Kesesuaian Produk Halal Luar Negeri yang Masuk ke Wilayah Indonesia",
+    tanggal: "Ditetapkan: di Jakarta, 7 Agustus 2026 oleh Kepala BPJPH Ahmad Haikal Hasan. Diundangkan: di Jakarta, 10 Agustus 2026 oleh Direktur Jenderal Peraturan Perundang-undangan Kementerian Hukum RI, Dhahana Putra.",
+    status: "Berlaku",
+    ruang: "Pemastian kesesuaian (verifikasi administratif dan pemeriksaan) atas Produk (barang/jasa terkait makanan, minuman, obat, kosmetik, produk kimiawi, biologi, rekayasa genetik, dan barang gunaan) halal luar negeri yang masuk, beredar, dan diperdagangkan di wilayah Indonesia — wajib dilakukan sebelum pengajuan pemberitahuan pabean Impor (Pasal 2).",
+    catatan: "Mulai berlaku 30 hari kalender sejak diundangkan (Pasal 25) — estimasi 9 September 2026."
+  },
+  istilah: [
+    {t:"Pemastian Produk Halal", d:"Kegiatan verifikasi administratif dan pemeriksaan kesesuaian fisik secara terbatas untuk memastikan kesesuaian Produk Impor dengan Sertifikat Halal/Nomor Registrasi, Label Halal/Keterangan Tidak Halal, dokumen impor, dan ketentuan JPH."},
+    {t:"Lembaga Inspeksi", d:"Lembaga pelaksana inspeksi pemeriksaan Produk/proses/jasa/instalasi dan penentuan kesesuaiannya dengan persyaratan yang ditunjuk BPJPH."},
+    {t:"LPPH", d:"Laporan Pemastian Produk Halal — dokumen elektronik yang diterbitkan oleh Lembaga Inspeksi berdasarkan hasil pemastian."},
+    {t:"SINSW", d:"Sistem Indonesia National Single Window — sistem kepabeanan nasional tempat LPPH dipertukarkan secara elektronik."},
+    {t:"Sistem Elektronik Terintegrasi", d:"Sistem milik BPJPH untuk penyelenggaraan Pemastian Produk Halal dan pertukaran data dengan SINSW serta sistem terkait lainnya."}
+  ],
+  pasal: [
+    {pasal:"Pasal 1 (Ketentuan Umum)", ringkas:"Memuat 23 definisi istilah kunci, antara lain JPH, Produk, Produk Halal, SJPH, Lembaga Halal Luar Negeri (LHLN), Sertifikat Halal Luar Negeri (SHLN), Nomor Registrasi, Label Halal, Keterangan Tidak Halal, Impor, Importir, NIB, API, kode HS, Pemastian Produk Halal, Lembaga Inspeksi, LPPH, SINSW, Sistem Elektronik Terintegrasi, BPJPH, dan Kepala Badan.", ket:"Definisi untuk istilah baru dapat dilihat pada tabel istilah baru."},
+    {pasal:"Pasal 2", ringkas:"Produk yang masuk, beredar, dan diperdagangkan di Indonesia wajib bersertifikat halal. Produk berbahan haram dikecualikan dari kewajiban sertifikat halal namun wajib mencantumkan Keterangan Tidak Halal. Kedua jenis produk tersebut wajib melalui Pemastian Produk Halal sebelum pengajuan pemberitahuan pabean Impor.", ket:"Ayat (4): dikecualikan untuk barang pribadi penumpang/awak sarana pengangkut, barang kiriman pribadi/Pekerja Migran Indonesia, barang pelintas batas, barang pindahan WNI/WNA, barang kiriman jemaah haji via pos, barang contoh pengujian, barang transit/transhipment, atau barang lain sesuai ketentuan perundang-undangan."},
+    {pasal:"Pasal 3 (Bab II — Pelaksana Pemastian Produk Halal)", ringkas:"Pemastian Produk Halal dilaksanakan oleh BPJPH, yang menunjuk Lembaga Inspeksi milik negara dan/atau swasta. Lembaga Inspeksi wajib memenuhi 7 persyaratan (a–g), antara lain perizinan berusaha berbasis risiko, akreditasi KAN, kantor dalam dan luar negeri, sertifikasi sistem manajemen mutu/keamanan informasi/anti penyuapan, minimal 4 verifikator kompeten, serta jaminan independensi dan tanggung jawab atas dokumen dan LPPH.", ket:"7 persyaratan secara detail dibahas di sheet 3."},
+    {pasal:"Pasal 4", ringkas:"Mengatur 11 ayat prosedur penunjukan Lembaga Inspeksi: pengajuan permohonan via Sistem Elektronik Terintegrasi dengan dokumen lengkap, verifikasi dokumen oleh tim seleksi BPJPH (dapat disertai peninjauan lapangan), mekanisme perbaikan dokumen, penolakan bila masih tidak sesuai, hingga penetapan Kepala Badan dan penandatanganan perjanjian kerja sama sebelum LI dapat beroperasi.", ket:"Kepala Badan menetapkan wilayah kerja LI berdasarkan pertimbangan daftar kantor cabang dan mitra Lembaga Inspeksi di luar negeri yang dimiliki masing-masing pelaksana."},
+    {pasal:"Pasal 5", ringkas:"Penunjukan Lembaga Inspeksi dilakukan melalui seleksi berdasarkan prinsip transparan, akuntabel, objektif, tidak diskriminatif, dan bebas konflik kepentingan.", ket:"Ketentuan teknis proses seleksi diatur lebih lanjut melalui Keputusan Kepala Badan."},
+    {pasal:"Pasal 6 (Bab III — Pemastian Produk Halal)", ringkas:"Pemastian Produk Halal dilakukan di negara muat/asal Produk atas permohonan Importir, mencakup pemeriksaan kesesuaian dokumen SJPH dengan kondisi fisik Produk melalui 11 poin pemeriksaan (a–k): kesesuaian dokumen, identifikasi jenis Produk, validasi nomor Sertifikat/Registrasi, identifikasi kode HS, pengecekan jumlah/kode/tanggal produksi, pengecekan Label Halal/Keterangan Tidak Halal, penilaian risiko kontaminasi, kesesuaian tanggal penyembelihan halal, verifikasi SHLN dan LHLN, pengecekan CoA/CoO/MSDS, dan dokumen pendukung lain.", ket:"Wajib dilakukan langsung di gudang muat sebelum pengapalan di negara muat dan/atau negara asal produk; hasil dituangkan dalam LPPH."},
+    {pasal:"Pasal 7", ringkas:"Lembaga Inspeksi wajib menyampaikan LPPH kepada Kepala Badan melalui Sistem Elektronik Terintegrasi, memuat informasi kesesuaian/ketidaksesuaian.", ket:"Format LPPH ditetapkan oleh Kepala Badan."},
+    {pasal:"Pasal 8–9 (Bab IV — Pengajuan Permohonan Pemastian Produk Halal)", ringkas:"Importir mengajukan permohonan Pemastian melalui Sistem Elektronik Terintegrasi dengan 7 persyaratan (NIB-API, Sertifikat Halal/Nomor Registrasi/Keterangan Tidak Halal, daftar Produk+kode HS, surat kuasa, NPWP, nota pembelian dan daftar pemesanan, jaminan kebenaran dokumen) dan memilih Lembaga Inspeksi. LI memverifikasi kelengkapan dokumen (dikembalikan bila tidak lengkap), menghitung tagihan, dan BPJPH menerbitkan invois.", ket:"Invois menjadi dasar permintaan resmi pelaksanaan Pemastian Produk Halal."},
+    {pasal:"Pasal 10–11 (Pembayaran dan Pelaksanaan)", ringkas:"Importir membayar 100% invois di muka via Sistem Elektronik Terintegrasi. Importir/eksportir menyampaikan waktu pelaksanaan maksimal 30 hari kalender sejak pembayaran diterima BPJPH (jika lewat, permohonan ditolak dan dana dikembalikan). LI melaksanakan Pemastian maksimal 15 hari kalender (dapat diperpanjang maksimal 15 hari kalender lagi ke Kepala Badan). Selisih tagihan direkonsiliasi melalui perubahan invois sebelum LPPH diterbitkan.", ket:"Importir wajib melunasi sisa tagihan atas perubahan invois (Pasal 11 ayat 8)."},
+    {pasal:"Pasal 12–13", ringkas:"LPPH digunakan sebagai dokumen lampiran pemberitahuan pabean Impor (pemantauan dilakukan setelah melalui kawasan pabean), berlaku untuk 1 kali pengapalan/pemasukan. BPJPH mengirimkan data elektronik LPPH ke SINSW melalui Sistem Elektronik Terintegrasi; Importir mengunduh LPPH melalui sistem yang sama.", ket:"Importir wajib memiliki LPPH saat pengajuan pemberitahuan pabean Impor."},
+    {pasal:"Pasal 14", ringkas:"Importir dikenakan tarif Pemastian Produk Halal. Besaran tarif diusulkan Kepala Badan kepada Menteri Keuangan; selama belum ditetapkan, tarif berlaku berdasarkan kesepakatan kerja sama.", ket:"Tata cara pembayaran tarif ditetapkan oleh Kepala Badan."},
+    {pasal:"Pasal 15", ringkas:"Daftar Produk Halal Luar Negeri dan kode HS ditetapkan oleh Kepala Badan.", ket:"Jika kode HS pada LPPH berbeda dengan kode HS versi instansi kepabeanan, yang berlaku adalah kode HS instansi kepabeanan."},
+    {pasal:"Pasal 16 (Bab V — Pelaporan)", ringkas:"Lembaga Inspeksi wajib menyampaikan laporan rekapitulasi kegiatan setiap triwulan kepada Kepala Badan, memuat nama Importir/eksportir, daftar Produk+kode HS, negara muat/asal, pelabuhan pemasukan, volume/jumlah barang, nilai Impor, dan informasi ketidaksesuaian.", ket:"—"},
+    {pasal:"Pasal 17–18 (Bab VI — Pemantauan dan Evaluasi)", ringkas:"BPJPH memantau pelaksanaan Pemastian Produk Halal minimal 1 kali per tahun (dapat melibatkan K/L terkait), mencakup kepatuhan LI dan konsistensi pemenuhan dokumen persyaratan sebagai pelaksana. Hasil pemantauan menjadi bahan evaluasi LI di tahun berikutnya dan evaluasi Importir.", ket:"Pemantauan konsistensi dokumen hanya dapat dilakukan oleh BPJPH (Pasal 18 ayat 2)."},
+    {pasal:"Pasal 19–22 (Bab VII — Sanksi Administratif)", ringkas:"Ketentuan sanksi administratif bagi Lembaga Inspeksi dan Importir — dibahas rinci pada bagian Sanksi.", ket:"Lihat tab Sanksi untuk rincian jenis pelanggaran dan sanksinya."},
+    {pasal:"Pasal 23–24 (Bab VIII — Ketentuan Lain-lain)", ringkas:"Jika LI dicabut penetapannya, BPJPH dapat melakukan seleksi kembali. Kepala Badan wajib mengusulkan besaran tarif Pemastian Produk Halal kepada Menteri Keuangan paling lama 1 tahun sejak Peraturan Badan diundangkan.", ket:"—"},
+    {pasal:"Pasal 25 (Bab IX — Penutup)", ringkas:"Peraturan Badan ini mulai berlaku setelah 30 hari kalender terhitung sejak tanggal diundangkan.", ket:"Diundangkan 10 Agustus 2026 — estimasi mulai berlaku 9 September 2026."}
+  ],
+  kewajiban: [
+    {pihak:"Lembaga", teks:"Memiliki perizinan berusaha berbasis risiko dan diakreditasi sebagai Lembaga Inspeksi oleh Komite Akreditasi Nasional (KAN) sesuai ruang lingkup pekerjaan", dok:"NIB, sertifikat akreditasi KAN", pasal:"Pasal 3(3) a–b; Pasal 4(2) a–b"},
+    {pihak:"Lembaga", teks:"Memiliki kantor di dalam negeri, kantor cabang di luar negeri, dan mitra Lembaga Inspeksi di luar negeri dengan legalitas masing-masing", dok:"Daftar kantor, akta pendirian, legalitas negara setempat", pasal:"Pasal 3(3) c; Pasal 4(2) c"},
+    {pihak:"Lembaga", teks:"Memiliki sistem manajemen mutu, penilaian kesesuaian, keamanan informasi, dan anti penyuapan yang tersertifikasi; memiliki minimal 4 verifikator kompeten", dok:"ISO 9001, ISO 17020, ISO 27001/17029/37001, sertifikat ahli kepabeanan, sertifikat pelatihan SJPH", pasal:"Pasal 3(3) d–e; Pasal 4(2) d–e"},
+    {pihak:"Lembaga", teks:"Menjamin independensi, integritas, dan tanggung jawab penuh atas kebenaran dokumen persyaratan dan LPPH", dok:"Surat pernyataan bebas kerja sama dengan asosiasi importir, surat pernyataan kebenaran dokumen bermaterai", pasal:"Pasal 3(3) f–g; Pasal 4(2) f–g"},
+    {pihak:"Lembaga", teks:"Menandatangani perjanjian kerja sama dengan Kepala Badan sebelum melaksanakan Pemastian Produk Halal", dok:"Perjanjian kerja sama, keputusan penetapan Kepala Badan", pasal:"Pasal 4(9)–(10)"},
+    {pihak:"Importir", teks:"Memiliki NIB yang berlaku sebagai API dan NPWP perusahaan", dok:"NIB (berlaku sebagai API), NPWP", pasal:"Pasal 8(2) a, e"},
+    {pihak:"Importir", teks:"Memiliki Sertifikat Halal/Nomor Registrasi produk, atau Keterangan Tidak Halal bagi bahan haram", dok:"Sertifikat Halal/Nomor Registrasi, atau foto kemasan dengan Keterangan Tidak Halal", pasal:"Pasal 8(2) b; (3) b"},
+    {pihak:"Importir", teks:"Menyusun daftar Produk impor lengkap dengan kode HS, nota pembelian dan daftar pemesanan Produk", dok:"Daftar produk + kode HS, nota pembelian, daftar pemesanan", pasal:"Pasal 8(2) c, f"},
+    {pihak:"Importir", teks:"Mengajukan permohonan dan memilih Lembaga Inspeksi melalui Sistem Elektronik Terintegrasi; menyampaikan surat pernyataan kebenaran dokumen", dok:"Surat kuasa (bila diwakilkan), surat pernyataan pimpinan Importir", pasal:"Pasal 8(1), (3) d, g; (4)"},
+    {pihak:"Importir", teks:"Membayar 100% tarif Pemastian di muka, melunasi sisa tagihan jika ada selisih, dan wajib memiliki LPPH saat pengajuan pemberitahuan pabean impor", dok:"Bukti pembayaran, invois (dan perubahan invois bila ada selisih), LPPH", pasal:"Pasal 10, 11(7)–(8), 12(3)"},
+    {pihak:"BPJPH", teks:"Menunjuk Lembaga Inspeksi melalui seleksi transparan; menerbitkan invois; mengelola Sistem Elektronik Terintegrasi dan pertukaran data ke SINSW; memantau pelaksanaan minimal 1x/tahun", dok:"Keputusan penetapan LI, invois, data elektronik LPPH ke SINSW", pasal:"Pasal 3–5, 9(4)–(5), 13, 17"}
+  ],
+  sanksi: [
+    {lvl:1, jenis:"Lembaga Inspeksi", pelanggaran:"Melanggar kewajiban pemeriksaan langsung di gudang muat (Ps.6(4)), penyampaian LPPH (Ps.7(1)–(2)), pelaksanaan Pemastian tepat waktu (Ps.11(4)), atau pelaporan triwulanan (Ps.16(1))", sanksi:"Peringatan tertulis", pasal:"Pasal 20(1)"},
+    {lvl:2, jenis:"Lembaga Inspeksi", pelanggaran:"Pemeriksaan tidak dilakukan langsung di gudang muat sebelum pengapalan (Ps.6(5)); atau pengulangan pelanggaran setelah dikenakan peringatan tertulis", sanksi:"Pembekuan operasional", pasal:"Pasal 20(2)"},
+    {lvl:3, jenis:"Lembaga Inspeksi", pelanggaran:"Hasil pemantauan konsistensi dokumen persyaratan tidak terpenuhi (Ps.18 huruf b); atau pengulangan pelanggaran setelah dikenakan pembekuan operasional", sanksi:"Pencabutan penetapan sebagai pelaksana Pemastian Produk Halal", pasal:"Pasal 20(3)"},
+    {lvl:3, jenis:"Importir", pelanggaran:"Tidak melunasi sisa tagihan berdasarkan invois perubahan (Ps.11(8)); atau tidak memiliki LPPH saat pengajuan pemberitahuan pabean Impor (Ps.12(3))", sanksi:"Peringatan tertulis, pencabutan Sertifikat Halal, pencabutan Nomor Registrasi, penarikan barang dari peredaran, dan/atau pemusnahan barang", pasal:"Pasal 21"}
+  ]
+};
+
+const TABS = [
+  {id:"info", num:"01", label:"Info umum"},
+  {id:"ketentuan", num:"02", label:"Ketentuan pokok"},
+  {id:"kewajiban", num:"03", label:"Kewajiban & perizinan"},
+  {id:"sanksi", num:"04", label:"Sanksi"},
+  {id:"keterkaitan", num:"05", label:"Keterkaitan regulasi"},
+  {id:"studikasus", num:"06", label:"Studi kasus"}
+];
+
+function el(tag, cls, html){ const e = document.createElement(tag); if(cls) e.className = cls; if(html!==undefined) e.innerHTML = html; return e; }
+
+function renderTabs(){
+  const bar = document.getElementById('tabbar');
+  TABS.forEach((t, i)=>{
+    const b = el('button','tab' + (i===0?' active':''), `<span class="num">${t.num}</span> ${t.label}`);
+    b.dataset.id = t.id;
+    b.addEventListener('click', ()=> switchTab(t.id));
+    bar.appendChild(b);
+  });
+}
+
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach(b=> b.classList.toggle('active', b.dataset.id===id));
+  document.querySelectorAll('.section').forEach(s=> s.classList.toggle('active', s.id==='sec-'+id));
+}
+
+function buildShell(){
+  const shell = document.getElementById('panelShell');
+  shell.appendChild(buildInfo());
+  shell.appendChild(buildKetentuan());
+  shell.appendChild(buildKewajiban());
+  shell.appendChild(buildSanksi());
+  shell.appendChild(buildKeterkaitan());
+  shell.appendChild(buildStudiKasus());
+  shell.firstElementChild.classList.add('active');
+}
+
+function buildInfo(){
+  const s = el('div','section'); s.id = 'sec-info';
+  const rows = [
+    ["Instansi penerbit", DATA.info.instansi],
+    ["Jenis regulasi", DATA.info.jenis],
+    ["Nomor & tahun", DATA.info.nomor],
+    ["Judul lengkap", DATA.info.judul],
+    ["Tanggal", DATA.info.tanggal],
+    ["Status", `<span class="badge">${DATA.info.status}</span>`],
+    ["Ruang lingkup", DATA.info.ruang],
+    ["Catatan terakhir", DATA.info.catatan]
+  ];
+  let grid = `<div class="infogrid">`;
+  rows.forEach(r=>{ grid += `<div class="k">${r[0]}</div><div class="v">${r[1]}</div>`; });
+  grid += `</div>`;
+  s.innerHTML = `<div class="section-head"><h2>Informasi umum regulasi</h2><p>Identitas dan status berlaku Peraturan BPJPH No. 4 Tahun 2026.</p></div>${grid}`;
+  return s;
+}
+
+function buildKetentuan(){
+  const s = el('div','section'); s.id = 'sec-ketentuan';
+  s.innerHTML = `<div class="section-head"><h2>Ketentuan pokok</h2><p>23 definisi baru dan ringkasan tiap pasal, Pasal 1 sampai Pasal 25.</p></div>`;
+
+  const search = el('div','searchbox', `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Cari pasal atau kata kunci ketentuan...">`);
+  s.appendChild(search);
+
+  s.appendChild(el('div','divider-label','Istilah baru'));
+  const tgrid = el('div','term-grid');
+  DATA.istilah.forEach(it=>{
+    tgrid.appendChild(el('div','term-card', `<p class="term">${it.t}</p><p class="def">${it.d}</p>`));
+  });
+  s.appendChild(tgrid);
+
+  s.appendChild(el('div','divider-label','Ringkasan per pasal'));
+  const list = el('div',''); list.id = 'pasal-list';
+  DATA.pasal.forEach((p, i)=>{
+    const item = el('div','pasal-item');
+    item.dataset.search = (p.pasal+' '+p.ringkas+' '+p.ket).toLowerCase();
+    item.innerHTML = `
+      <div class="pasal-head">
+        <div class="pasal-tag">${p.pasal.split('(')[0].trim()}</div>
+        <div class="pasal-summary">${p.pasal.includes('(') ? p.pasal.split('(')[1].replace(')','') : p.ringkas.slice(0,70)+'...'}</div>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="pasal-body">
+        <div class="label">Ringkasan ketentuan</div>
+        <div>${p.ringkas}</div>
+        <div class="label">Keterangan tambahan</div>
+        <div>${p.ket}</div>
+      </div>`;
+    item.querySelector('.pasal-head').addEventListener('click', ()=> item.classList.toggle('open'));
+    list.appendChild(item);
+  });
+  s.appendChild(list);
+  const nores = el('div','nores','Tidak ada pasal yang cocok dengan pencarian.'); nores.id = 'pasal-nores';
+  s.appendChild(nores);
+
+  search.querySelector('input').addEventListener('input', (e)=>{
+    const q = e.target.value.toLowerCase().trim();
+    let visible = 0;
+    list.querySelectorAll('.pasal-item').forEach(item=>{
+      const match = item.dataset.search.includes(q);
+      item.style.display = match ? '' : 'none';
+      if(match) visible++;
+    });
+    nores.style.display = visible===0 ? 'block' : 'none';
+  });
+
+  return s;
+}
+
+function buildKewajiban(){
+  const s = el('div','section'); s.id = 'sec-kewajiban';
+  s.innerHTML = `<div class="section-head"><h2>Kewajiban pelaku usaha & perizinan</h2><p>11 kewajiban terbagi antara Lembaga Inspeksi, Importir, dan BPJPH.</p></div>`;
+
+  const fbar = el('div','filterbar');
+  const filters = [["all","Semua"],["Lembaga","Lembaga Inspeksi"],["Importir","Importir"],["BPJPH","BPJPH"]];
+  filters.forEach(([val,label], i)=>{
+    const b = el('button','filter-btn'+(i===0?' active':''), label);
+    b.dataset.val = val;
+    b.addEventListener('click', ()=>{
+      fbar.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      applyFilter(val);
+    });
+    fbar.appendChild(b);
+  });
+  s.appendChild(fbar);
+
+  const list = el('div',''); list.id = 'oblig-list';
+  DATA.kewajiban.forEach(k=>{
+    const card = el('div','oblig-card');
+    card.dataset.pihak = k.pihak;
+    card.innerHTML = `
+      <div class="oblig-top">
+        <p class="oblig-text">${k.teks}</p>
+        <span class="pihak-pill pihak-${k.pihak}">${k.pihak==='Lembaga'?'Lembaga Inspeksi':k.pihak}</span>
+      </div>
+      <div class="oblig-meta">
+        <div><span>Dokumen terkait</span>${k.dok}</div>
+        <div><span>Dasar pasal</span>${k.pasal}</div>
+      </div>`;
+    list.appendChild(card);
+  });
+  s.appendChild(list);
+
+  function applyFilter(val){
+    list.querySelectorAll('.oblig-card').forEach(c=>{
+      c.style.display = (val==='all' || c.dataset.pihak===val) ? '' : 'none';
+    });
+  }
+  return s;
+}
+
+function buildSanksi(){
+  const s = el('div','section'); s.id = 'sec-sanksi';
+  s.innerHTML = `<div class="section-head"><h2>Sanksi atas pelanggaran</h2><p>Sanksi administratif bagi Lembaga Inspeksi (Pasal 19–20) dan Importir (Pasal 21), berjenjang menurut tingkat pelanggaran.</p></div>`;
+
+  const track = el('div','sanksi-track', `
+    <div class="sanksi-step step-1">1. Peringatan tertulis</div>
+    <div class="sanksi-step step-2">2. Pembekuan operasional</div>
+    <div class="sanksi-step step-3">3. Pencabutan penetapan</div>`);
+  s.appendChild(track);
+
+  DATA.sanksi.forEach(sk=>{
+    const card = el('div',`sanksi-card lvl-${sk.lvl}`);
+    card.innerHTML = `
+      <div class="sanksi-head">
+        <p class="sanksi-name">${sk.sanksi} <span style="font-weight:400;color:var(--ink-3);font-size:12px;">— ${sk.jenis}</span></p>
+        <div class="sanksi-pasal">${sk.pasal}</div>
+      </div>
+      <p class="sanksi-viol">${sk.pelanggaran}</p>`;
+    s.appendChild(card);
+  });
+  return s;
+}
+
+function buildKeterkaitan(){
+  const s = el('div','section'); s.id = 'sec-keterkaitan';
+  s.innerHTML = `<div class="section-head"><h2>Keterkaitan dengan regulasi lain</h2><p>Regulasi yang beririsan atau menjadi acuan bagi Peraturan BPJPH No. 4 Tahun 2026.</p></div>
+    <div class="empty">
+      <h3>Belum ada regulasi terkait tercatat</h3>
+      <p>Bagian ini belum diisi pada hasil review. Tambahkan regulasi terkait — misalnya UU Jaminan Produk Halal atau peraturan kepabeanan yang beririsan — begitu teridentifikasi.</p>
+    </div>`;
+  return s;
+}
+
+function buildStudiKasus(){
+  const s = el('div','section'); s.id = 'sec-studikasus';
+  s.innerHTML = `<div class="section-head"><h2>Studi kasus penerapan regulasi</h2><p>Contoh penerapan atau pelanggaran regulasi ini di lapangan.</p></div>
+    <div class="empty">
+      <h3>Belum tersedia studi kasus</h3>
+      <p>Regulasi baru diundangkan 10 Agustus 2026 dan diperkirakan mulai berlaku efektif 9 September 2026, sehingga belum ada kasus penerapan atau pelanggaran di lapangan pada tanggal review ini disusun.</p>
+      <div class="note">Pantau pelaksanaan pertama setelah tanggal mulai berlaku untuk mengisi bagian ini</div>
+    </div>`;
+  return s;
+}
+
+renderTabs();
+buildShell();
+</script>
+</body>
+</html>
